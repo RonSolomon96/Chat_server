@@ -15,6 +15,30 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\Ron\שנה ב\sem2\מתקדם2\ex2R\Ratings2_2\Ratings2_2
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
