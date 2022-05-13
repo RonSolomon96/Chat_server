@@ -1,16 +1,14 @@
 ﻿
 @model IEnumerable<RatingObj>
 
-@{
-    ViewData["Title"] = "Index";
-}
+    <div class="col-7" id="col7">
+          <div class='row'>
+              <div class="chatnav4" > Rating Overview</div>
+              <a asp-action="Create"><h4>Rate Us</h4></a>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-@{
+          </div>
+          <div>
+              @{
     float avg_rate = 0 , sum = 0;
     foreach(var rate in Model)
     {
@@ -72,3 +70,7 @@
 }
     </tbody>
 </table>
+          </div>
+        </div>
+
+
