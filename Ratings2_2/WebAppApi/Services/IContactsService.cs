@@ -9,7 +9,7 @@ namespace WebAppApi.Services
         public List<Contact> GetAll();
         public void Create(string Id ,string Name, string Server);
 
-        public void Edit(string Id, string Name, string Server, string Last);
+        public void Edit(string Id, string Name, string Server);
 
         public void Delete(string Id);
     }

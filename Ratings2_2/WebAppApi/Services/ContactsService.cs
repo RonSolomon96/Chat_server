@@ -27,19 +27,24 @@ namespace WebAppApi.Services
             }) ;
         }
 
-        public void Edit(string Id, string Name, string Server, string Last)
+        public void Edit(string Id, string Name, string Server)
         {
             Contact obj = Get(Id);
-            obj.Name = Name;
-            obj.Server = Server;
-            obj.Last = Last;
-            obj.Lastdate = DateTime.Now.ToString();
+            if (obj != null)
+            {
+                obj.Name = Name;
+                obj.Server = Server;
+                obj.Lastdate = DateTime.Now.ToString();
+            }
         }
 
         public void Delete(string Id)
         {
-            Contacts.Remove(Get(Id));
-
+            Contact obj = Get(Id);
+            if (obj != null)
+            {
+                Contacts.Remove(obj);
+            }
         }
     }
 }

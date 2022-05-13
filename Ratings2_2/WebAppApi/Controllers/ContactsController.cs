@@ -9,6 +9,7 @@ using WebAppApi.Data;
 using WebAppApi.Models;
 using WebAppApi.Services;
 
+
 namespace WebAppApi.Controllers
 {
     [ApiController]
@@ -26,33 +27,70 @@ namespace WebAppApi.Controllers
 
         // GET: Contacts
         [HttpGet]
-        public IEnumerable<Contact> GetContacts()
+        public IActionResult GetContacts()
         {
-            return new List<Contact>() { new Contact() { Id = "m", Name = "jhcgy", Server = "cygishbvc", 
-                                         Last = "oufh", Lastdate = "hfid"},
-            new Contact() { Id = "yug", Name = "jhcgy", Server = "cygishbvc",
-                                         Last = "oufh", Lastdate = "hfid"}};
-            //return serve.GetAll();
+            return new OkObjectResult(serve.GetAll()); ;
         }
 
-        /*
-        // GET: Contacts/Details/5
-        public async Task<IActionResult> Details(string id)
+        // POST: Contacts/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+      //  [ValidateAntiForgeryToken]
+        public IActionResult Create([Bind("Id,Name,Server")] Contact contact)
         {
-            if (id == null || _context.Contact == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                serve.Create(contact.Id, contact.Name, contact.Server);
+                return new OkObjectResult(contact.Id);
             }
+            return new NotFoundResult();
+        }
 
-            var contact = await _context.Contact
-                .FirstOrDefaultAsync(m => m.Id == id);
+
+        // GET: Contacts/Details/5
+        [HttpGet("{id}")]
+        public IActionResult Details(string id)
+        {
+            if (id == null || serve.GetAll().Count == 0)
+            {
+                return new NotFoundResult();
+            }
+            Contact contact = serve.Get(id);
+            if (contact == null) {
+                return new NotFoundResult();
+            }
+            return new OkObjectResult(contact);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(string id, string Name, string Server)
+        {
+            serve.Edit(id, Name, Server);
+            var contact = serve.Get(id);
+            if (contact == null) {
+                return new NotFoundResult();
+            }
+            return new OkObjectResult(contact.Id);
+        }
+       
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
+        {
+            if (serve.GetAll().Count == 0)
+            {
+                return new NotFoundResult();
+            }
+            Contact contact = serve.Get(id);
             if (contact == null)
             {
-                return NotFound();
+                return new NotFoundResult();
             }
-
-            return View(contact);
+            serve.Delete(id);
+            return  new OkObjectResult(id);
         }
+        /*
+        
 
         // GET: Contacts/Create
         public IActionResult Create()
@@ -60,21 +98,7 @@ namespace WebAppApi.Controllers
             return View();
         }
 
-        // POST: Contacts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Server,Last,Lastdate")] Contact contact)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(contact);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(contact);
-        }
+       
 
         // GET: Contacts/Edit/5
         public async Task<IActionResult> Edit(string id)
@@ -145,30 +169,13 @@ namespace WebAppApi.Controllers
             return View(contact);
         }
 
-        // POST: Contacts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            if (_context.Contact == null)
-            {
-                return Problem("Entity set 'WebAppApiContext.Contact'  is null.");
-            }
-            var contact = await _context.Contact.FindAsync(id);
-            if (contact != null)
-            {
-                _context.Contact.Remove(contact);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        
 
         private bool ContactExists(string id)
         {
           return (_context.Contact?.Any(e => e.Id == id)).GetValueOrDefault();
         }
         */
-        
+
     }
 }
