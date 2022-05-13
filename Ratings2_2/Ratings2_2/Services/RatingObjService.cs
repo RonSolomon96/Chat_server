@@ -20,6 +20,9 @@ namespace Ratings2_2.Services
             {
                 id = Rlist.Max(x => x.Id) + 1;
             }
+            if (Description == null) {
+                Description = "";
+            }
             Rlist.Add(new RatingObj()
             {
                 Id = id,

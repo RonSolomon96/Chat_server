@@ -16,9 +16,9 @@ namespace Ratings.Controllers
         //serve is service
         private IRatingObjService serve;
 
-        public RatingObjsController()
+        public RatingObjsController(IRatingObjService serv)
         {
-            serve = new RatingObjService();
+            serve = serv;
         }
 
         // GET: RatingObjs
@@ -42,10 +42,11 @@ namespace Ratings.Controllers
         [ActionName("Search")]
         public IActionResult Search(string query)
         {
+            if (query == null) { return RedirectToAction(nameof(Index)); }
             var q = from obj in serve.GetAll()
                     where obj.Name.Contains(query) || obj.Description.Contains(query)
                     select obj;
-            return View(q.ToList());
+            return View(nameof(Index), q.ToList());
         }
 
         // POST: RatingObjs/Create

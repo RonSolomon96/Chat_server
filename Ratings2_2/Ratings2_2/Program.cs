@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Ratings2_2.Data;
+using Ratings2_2.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<Ratings2_2Context>(options =>
@@ -8,6 +10,7 @@ builder.Services.AddDbContext<Ratings2_2Context>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IRatingObjService, RatingObjService>();
 
 var app = builder.Build();
 
