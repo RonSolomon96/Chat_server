@@ -15,5 +15,7 @@ namespace WebAppApi.Data
         }
 
         public DbSet<WebAppApi.Models.Contact>? Contact { get; set; }
+
+        public DbSet<WebAppApi.Models.Message> Message { get; set; }
     }
 }
