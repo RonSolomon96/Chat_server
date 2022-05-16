@@ -17,9 +17,9 @@ namespace WebAppApi.Controllers
     public class ContactsController : Controller
     {
         //serve is service
-        private IContactsService serve;
+        private IService serve;
 
-        public ContactsController(IContactsService serv)
+        public ContactsController(IService serv)
         {
             serve = serv;
         }
@@ -29,7 +29,7 @@ namespace WebAppApi.Controllers
         [HttpGet]
         public IActionResult GetContacts()
         {
-            return new OkObjectResult(serve.GetAll()); ;
+            return new OkObjectResult(serve.GetAllContacts()); ;
         }
 
         // POST: Contacts/Create
@@ -41,7 +41,7 @@ namespace WebAppApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                serve.Create(contact.Id, contact.Name, contact.Server);
+                serve.CreateContact(contact.Id, contact.Name, contact.Server);
                 return new OkObjectResult(contact.Id);
             }
             return new NotFoundResult();
@@ -52,11 +52,11 @@ namespace WebAppApi.Controllers
         [HttpGet("{id}")]
         public IActionResult Details(string id)
         {
-            if (id == null || serve.GetAll().Count == 0)
+            if (id == null || serve.GetAllContacts().Count == 0)
             {
                 return new NotFoundResult();
             }
-            Contact contact = serve.Get(id);
+            Contact contact = serve.GetContact(id);
             if (contact == null) {
                 return new NotFoundResult();
             }
@@ -66,8 +66,8 @@ namespace WebAppApi.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(string id, string Name, string Server)
         {
-            serve.Edit(id, Name, Server);
-            var contact = serve.Get(id);
+            serve.EditContact(id, Name, Server);
+            var contact = serve.GetContact(id);
             if (contact == null) {
                 return new NotFoundResult();
             }
@@ -77,105 +77,19 @@ namespace WebAppApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            if (serve.GetAll().Count == 0)
+            if (serve.GetAllContacts().Count == 0)
             {
                 return new NotFoundResult();
             }
-            Contact contact = serve.Get(id);
+            Contact contact = serve.GetContact(id);
             if (contact == null)
             {
                 return new NotFoundResult();
             }
-            serve.Delete(id);
+            serve.DeleteContact(id);
             return  new OkObjectResult(id);
         }
-        /*
         
-
-        // GET: Contacts/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-       
-
-        // GET: Contacts/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null || _context.Contact == null)
-            {
-                return NotFound();
-            }
-
-            var contact = await _context.Contact.FindAsync(id);
-            if (contact == null)
-            {
-                return NotFound();
-            }
-            return View(contact);
-        }
-
-        // POST: Contacts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Server,Last,Lastdate")] Contact contact)
-        {
-            if (id != contact.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(contact);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ContactExists(contact.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(contact);
-        }
-
-        // GET: Contacts/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null || _context.Contact == null)
-            {
-                return NotFound();
-            }
-
-            var contact = await _context.Contact
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (contact == null)
-            {
-                return NotFound();
-            }
-
-            return View(contact);
-        }
-
-        
-
-        private bool ContactExists(string id)
-        {
-          return (_context.Contact?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
-        */
 
     }
 }
