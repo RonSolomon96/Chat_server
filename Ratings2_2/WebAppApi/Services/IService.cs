@@ -4,23 +4,25 @@ namespace WebAppApi.Services
 {
     public interface IService
     {
-        public Contact GetContact(string Id);
-        public List<Contact> GetAllContacts();
-        public void CreateContact(string Id, string Name, string Server);
+        public Contact GetContact(string User, string Id);
 
-        public void EditContact(string Id, string Name, string Server);
+        public List<Contact> GetAllContacts(string User);
+        
+        public void CreateContact(string User, string Id, string Name, string Server);
 
-        public void DeleteContact(string Id);
+        public void EditContact(string User, string Id, string Name, string Server);
+
+        public void DeleteContact(string User, string Id);
 
 
-        public Message GetMessage(int Id);
+        public Message GetMessage(string User, string Contact, int Id);
 
-        public List<Message> GetAllMessages();
+        public List<Message> GetAllMessages(string User, string Contact);
 
-        public void CreateMessage(string Content);
+        public void CreateMessage(string User, string Contact, string Content);
 
-        public void EditMessage(int Id, string Content);
+        public void EditMessage(string User, string Contact, int Id, string Content);
 
-        public void DeleteMessage(int Id);
+        public void DeleteMessage(string User, string Contact, int Id);
     }
 }

@@ -13,7 +13,7 @@ using WebAppApi.Services;
 namespace WebAppApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/{User}")]
     public class ContactsController : Controller
     {
         //serve is service
@@ -27,9 +27,9 @@ namespace WebAppApi.Controllers
 
         // GET: Contacts
         [HttpGet]
-        public IActionResult GetContacts()
+        public IActionResult GetContacts(string User)
         {
-            return new OkObjectResult(serve.GetAllContacts()); ;
+            return new OkObjectResult(serve.GetAllContacts(User)) ;
         }
 
         // POST: Contacts/Create
@@ -37,11 +37,11 @@ namespace WebAppApi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
       //  [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Name,Server")] Contact contact)
+        public IActionResult Create(string User, [Bind("Id,Name,Server")] Contact contact)
         {
             if (ModelState.IsValid)
             {
-                serve.CreateContact(contact.Id, contact.Name, contact.Server);
+                serve.CreateContact(User, contact.Id, contact.Name, contact.Server);
                 return new OkObjectResult(contact.Id);
             }
             return new NotFoundResult();
@@ -50,13 +50,13 @@ namespace WebAppApi.Controllers
 
         // GET: Contacts/Details/5
         [HttpGet("{id}")]
-        public IActionResult Details(string id)
+        public IActionResult Details(string User, string id)
         {
-            if (id == null || serve.GetAllContacts().Count == 0)
+            if (id == null || serve.GetAllContacts(User).Count == 0)
             {
                 return new NotFoundResult();
             }
-            Contact contact = serve.GetContact(id);
+            Contact contact = serve.GetContact(User, id);
             if (contact == null) {
                 return new NotFoundResult();
             }
@@ -64,10 +64,10 @@ namespace WebAppApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(string id, string Name, string Server)
+        public IActionResult Update(string User, string id, string Name, string Server)
         {
-            serve.EditContact(id, Name, Server);
-            var contact = serve.GetContact(id);
+            serve.EditContact(User, id, Name, Server);
+            var contact = serve.GetContact(User, id);
             if (contact == null) {
                 return new NotFoundResult();
             }
@@ -75,18 +75,18 @@ namespace WebAppApi.Controllers
         }
        
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(string User, string id)
         {
-            if (serve.GetAllContacts().Count == 0)
+            if (serve.GetAllContacts(User).Count == 0)
             {
                 return new NotFoundResult();
             }
-            Contact contact = serve.GetContact(id);
+            Contact contact = serve.GetContact(User, id);
             if (contact == null)
             {
                 return new NotFoundResult();
             }
-            serve.DeleteContact(id);
+            serve.DeleteContact(User, id);
             return  new OkObjectResult(id);
         }
         

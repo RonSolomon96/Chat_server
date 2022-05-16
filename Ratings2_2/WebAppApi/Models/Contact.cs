@@ -14,5 +14,7 @@ namespace WebAppApi.Models
         public string Last { set; get; }
 
         public string Lastdate { set; get; }
+
+        public List<Message> Messages { set; get; }
     }
 }
