@@ -4,52 +4,8 @@ namespace WebAppApi.Services
 {
     public class Service : IService
     {
-        Dictionary<User, List<Contact>> DB = new Dictionary<User, List<Contact>>();
-        List<User> Users = new List<User>();
-
-
-        public User GetUser(string User)
-        {
-            return DB.Keys.Find(c => c.Username == Id);
-            //Contacts.Find(c => c.Id == Id);
-        }
-
-        public List<Contact> GetAllContacts(string User)
-        {
-            return DB[User];
-        }
-        public void CreateContact(string User, string Id, string Name, string Server)
-        {
-            DB[User].Add(new Contact()
-            {
-                Id = Id,
-                Name = Name,
-                Server = Server,
-                Last = "",
-                Lastdate = DateTime.Now.ToString(),
-                Messages = new List<Message>()
-            });
-        }
-
-        public void EditContact(string User, string Id, string Name, string Server)
-        {
-            Contact obj = GetContact(User, Id);
-            if (obj != null)
-            {
-                obj.Name = Name;
-                obj.Server = Server;
-                obj.Lastdate = DateTime.Now.ToString();
-            }
-        }
-
-        public void DeleteContact(string User, string Id)
-        {
-            Contact obj = GetContact(User, Id);
-            if (obj != null)
-            {
-                DB[User].Remove(obj);
-            }
-        }
+        Dictionary<string, List<Contact>> DB = new Dictionary<string, List<Contact>>();
+       // List<User> Users = new List<User>();
 
 
 
