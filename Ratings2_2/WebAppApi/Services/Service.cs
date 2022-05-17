@@ -16,6 +16,7 @@ namespace WebAppApi.Services
         }
 
         public List<Contact> GetAllContacts(string User)
+            
         {
             return DB[User];
         }
