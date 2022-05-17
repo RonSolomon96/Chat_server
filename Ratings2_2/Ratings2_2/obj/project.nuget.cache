@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pp9+hkOXbG7L/ZHrc5RQNCO00JnI8NSN0an15AGxCdkPM+4PyeyKAbjfaZe3Qxn8p1C03sIcjusC0JDiAPF0tQ==",
+  "dgSpecHash": "0pqChp+7Bqca/Ygcyq1DfoXitcTNot/AHgadqUspZLcoINnJ0RtgKQ5i1tXpRohUkehrURB9RrSoTtdlhnTdDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\mitkadem2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
+  "projectFilePath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ord42\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ord42\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

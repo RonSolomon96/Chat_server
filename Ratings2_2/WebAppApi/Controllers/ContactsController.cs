@@ -29,30 +29,43 @@ namespace WebAppApi.Controllers
         [HttpGet]
         public IActionResult GetContacts(string User)
         {
-            return new OkObjectResult(serve.GetAllContacts(User)) ;
+            List<Contact> contacts = serve.GetAllContacts(User);
+            if (contacts == null)
+            {
+                return NotFound();
+            }
+            return new OkObjectResult(contacts) ;
         }
 
         // POST: Contacts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-      //  [ValidateAntiForgeryToken]
+        //  [ValidateAntiForgeryToken]
         public IActionResult Create(string User, [Bind("Id,Name,Server")] Contact contact)
         {
-            if (ModelState.IsValid)
-            {
-                serve.CreateContact(User, contact.Id, contact.Name, contact.Server);
-                return new OkObjectResult(contact.Id);
+            if (serve.GetUser(User) != null) {
+                if (serve.GetContact(User, contact.Id) == null)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        serve.CreateContact(User, contact.Id, contact.Name, contact.Server);
+                        return new OkObjectResult(contact.Id);
+                    }
+                    return new NotFoundResult();
+                }
+                return new BadRequestResult();
             }
-            return new NotFoundResult();
+            return new BadRequestResult();
         }
+        
 
 
         // GET: Contacts/Details/5
         [HttpGet("{id}")]
         public IActionResult Details(string User, string id)
         {
-            if (id == null || serve.GetAllContacts(User).Count == 0)
+            if (id == null || serve.GetAllContacts(User) == null || serve.GetAllContacts(User).Count == 0)
             {
                 return new NotFoundResult();
             }
@@ -77,7 +90,7 @@ namespace WebAppApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string User, string id)
         {
-            if (serve.GetAllContacts(User).Count == 0)
+            if (serve.GetAllContacts(User) == null || serve.GetAllContacts(User).Count == 0)
             {
                 return new NotFoundResult();
             }

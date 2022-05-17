@@ -9665,11 +9665,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\mitkadem2-2\\Ratings2_2\\WebAppApi\\WebAppApi.csproj",
+      "projectUniqueName": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\WebAppApi\\WebAppApi.csproj",
       "projectName": "WebAppApi",
-      "projectPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\mitkadem2-2\\Ratings2_2\\WebAppApi\\WebAppApi.csproj",
+      "projectPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\WebAppApi\\WebAppApi.csproj",
       "packagesPath": "C:\\Users\\ord42\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\mitkadem2-2\\Ratings2_2\\WebAppApi\\obj\\",
+      "outputPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\WebAppApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ord42\\AppData\\Roaming\\NuGet\\NuGet.Config",

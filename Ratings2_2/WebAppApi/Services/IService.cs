@@ -4,6 +4,18 @@ namespace WebAppApi.Services
 {
     public interface IService
     {
+        public User GetUser(string Username);
+
+        public List<User> GetAllUsers();
+
+        public void CreateUser(string Username, string Password, string Nickname, string Server);
+
+       // public void EditUser(string Username string Password, string Nickname, string Server);
+
+       // public void DeleteContact(string User, string Id);
+
+
+
         public Contact GetContact(string User, string Id);
 
         public List<Contact> GetAllContacts(string User);

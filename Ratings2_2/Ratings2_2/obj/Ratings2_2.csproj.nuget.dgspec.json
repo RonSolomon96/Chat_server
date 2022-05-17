@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\mitkadem2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj": {}
+    "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\mitkadem2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj": {
+    "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\mitkadem2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
+        "projectUniqueName": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
         "projectName": "Ratings2_2",
-        "projectPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\mitkadem2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
+        "projectPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
         "packagesPath": "C:\\Users\\ord42\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\mitkadem2-2\\Ratings2_2\\Ratings2_2\\obj\\",
+        "outputPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\Ratings2_2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ord42\\AppData\\Roaming\\NuGet\\NuGet.Config",

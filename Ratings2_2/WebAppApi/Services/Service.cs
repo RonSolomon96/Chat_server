@@ -5,18 +5,54 @@ namespace WebAppApi.Services
     public class Service : IService
     {
         Dictionary<string, List<Contact>> DB = new Dictionary<string, List<Contact>>();
-       // List<User> Users = new List<User>();
+        List<User> Users = new List<User>();
+
+
+        public User GetUser(string Username)
+        {
+            return Users.Find(u => u.UserName == Username);
+            //Contacts.Find(c => c.Id == Id);
+        }
+
+        public List<User> GetAllUsers()
+        {
+            return Users;
+        }
+
+        public void CreateUser(string Username, string Password, string Nickname, string Server)
+        {
+
+            Users.Add(new User()
+            {
+                UserName = Username,
+                Password = Password,
+                Nickname = Nickname,    
+                Server = Server
+            });
+
+            DB[Username] = new List<Contact>();
+        }
+
+       
+
 
 
 
         public Contact GetContact(string User, string Id)
         {
+            if (GetUser(User) == null) { 
+                return null;    
+            }
             return DB[User].Find(c => c.Id == Id); 
                 //Contacts.Find(c => c.Id == Id);
         }
 
         public List<Contact> GetAllContacts(string User)
         {
+            if (GetUser(User) == null)
+            {
+                return null;
+            }
             return DB[User];
         }
         public void CreateContact(string User, string Id, string Name, string Server)
@@ -58,11 +94,19 @@ namespace WebAppApi.Services
 
         public Message GetMessage(string User, string Contact, int Id)
         {
+            if (GetContact(User, Contact) == null)
+            {
+                return null;
+            }
             return DB[User].Find(c => c.Id == Contact).Messages.Find(m => m.Id == Id);
         }
 
         public List<Message> GetAllMessages(string User, string Contact)
         {
+            if (GetContact(User, Contact) == null)
+            {
+                return null;
+            }
             return DB[User].Find(c => c.Id == Contact).Messages;
         }
 
