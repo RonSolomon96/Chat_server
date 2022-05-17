@@ -9665,11 +9665,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
+      "projectName": "Ratings2_2",
+      "projectPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
+      "packagesPath": "C:\\Users\\ord42\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\mitkadem_server2-2\\Ratings2_2\\Ratings2_2\\obj\\",
+=======
       "projectUniqueName": "C:\\Users\\User\\Desktop\\Ron\\שנה ב\\sem2\\מתקדם2\\ex2R\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
       "projectName": "Ratings2_2",
       "projectPath": "C:\\Users\\User\\Desktop\\Ron\\שנה ב\\sem2\\מתקדם2\\ex2R\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\Desktop\\Ron\\שנה ב\\sem2\\מתקדם2\\ex2R\\Ratings2_2\\Ratings2_2\\obj\\",
+>>>>>>> 11046e5beaf5993a0ed6f946e33691ac280eabe2
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
