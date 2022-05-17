@@ -4,34 +4,36 @@ namespace WebAppApi.Services
 {
     public class Service : IService
     {
-        private static List<Contact> Contacts = new List<Contact>();
-        private static List<Message> Messages = new List<Message>();
+        Dictionary<User, List<Contact>> DB = new Dictionary<User, List<Contact>>();
+        List<User> Users = new List<User>();
 
 
-        public Contact GetContact(string Id)
+        public User GetUser(string User)
         {
-            return Contacts.Find(c => c.Id == Id);
+            return DB.Keys.Find(c => c.Username == Id);
+            //Contacts.Find(c => c.Id == Id);
         }
 
-        public List<Contact> GetAllContacts()
+        public List<Contact> GetAllContacts(string User)
         {
-            return Contacts;
+            return DB[User];
         }
-        public void CreateContact(string Id, string Name, string Server)
+        public void CreateContact(string User, string Id, string Name, string Server)
         {
-            Contacts.Add(new Contact()
+            DB[User].Add(new Contact()
             {
                 Id = Id,
                 Name = Name,
                 Server = Server,
                 Last = "",
-                Lastdate = DateTime.Now.ToString()
+                Lastdate = DateTime.Now.ToString(),
+                Messages = new List<Message>()
             });
         }
 
-        public void EditContact(string Id, string Name, string Server)
+        public void EditContact(string User, string Id, string Name, string Server)
         {
-            Contact obj = GetContact(Id);
+            Contact obj = GetContact(User, Id);
             if (obj != null)
             {
                 obj.Name = Name;
@@ -40,12 +42,57 @@ namespace WebAppApi.Services
             }
         }
 
-        public void DeleteContact(string Id)
+        public void DeleteContact(string User, string Id)
         {
-            Contact obj = GetContact(Id);
+            Contact obj = GetContact(User, Id);
             if (obj != null)
             {
-                Contacts.Remove(obj);
+                DB[User].Remove(obj);
+            }
+        }
+
+
+
+        public Contact GetContact(string User, string Id)
+        {
+            return DB[User].Find(c => c.Id == Id); 
+                //Contacts.Find(c => c.Id == Id);
+        }
+
+        public List<Contact> GetAllContacts(string User)
+        {
+            return DB[User];
+        }
+        public void CreateContact(string User, string Id, string Name, string Server)
+        {
+            DB[User].Add(new Contact()
+            {
+                Id = Id,
+                Name = Name,
+                Server = Server,
+                Last = "",
+                Lastdate = DateTime.Now.ToString(),
+                Messages = new List<Message>()
+            });
+        }
+
+        public void EditContact(string User, string Id, string Name, string Server)
+        {
+            Contact obj = GetContact(User, Id);
+            if (obj != null)
+            {
+                obj.Name = Name;
+                obj.Server = Server;
+                obj.Lastdate = DateTime.Now.ToString();
+            }
+        }
+
+        public void DeleteContact(string User, string Id)
+        {
+            Contact obj = GetContact(User, Id);
+            if (obj != null)
+            {
+                DB[User].Remove(obj);
             }
         }
 
@@ -53,17 +100,19 @@ namespace WebAppApi.Services
 
         
 
-        public Message GetMessage(int Id)
+        public Message GetMessage(string User, string Contact, int Id)
         {
-            return Messages.Find(c => c.Id == Id);
+            return DB[User].Find(c => c.Id == Contact).Messages.Find(m => m.Id == Id);
         }
 
-        public List<Message> GetAllMessages()
+        public List<Message> GetAllMessages(string User, string Contact)
         {
-            return Messages;
+            return DB[User].Find(c => c.Id == Contact).Messages;
         }
-        public void CreateMessage(string Content)
+
+        public void CreateMessage(string User, string Contact, string Content)
         {
+            List<Message> Messages = DB[User].Find(c => c.Id == Contact).Messages;
             int id = 0;
             if (Messages.Count != 0)
             {
@@ -79,9 +128,9 @@ namespace WebAppApi.Services
             });
         }
 
-        public void EditMessage(int Id, string Content)
+        public void EditMessage(string User, string Contact, int Id, string Content)
         {
-            Message obj = GetMessage(Id);
+            Message obj = GetMessage(User, Contact, Id);
             if (obj != null)
             {
                 obj.Content = Content;
@@ -89,12 +138,12 @@ namespace WebAppApi.Services
             }
         }
 
-        public void DeleteMessage(int Id)
+        public void DeleteMessage(string User, string Contact, int Id)
         {
-            Message obj = GetMessage(Id);
+            Message obj = GetMessage(User, Contact, Id);
             if (obj != null)
             {
-                Messages.Remove(obj);
+                DB[User].Find(c => c.Id == Contact).Messages.Remove(obj);
             }
         }
     }

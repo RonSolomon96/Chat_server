@@ -12,7 +12,7 @@ using WebAppApi.Services;
 namespace WebAppApi.Controllers
 {
     [ApiController]
-    [Route("api/Contacts/{id}/[controller]")]
+    [Route("api/Contacts/{User}/{id}/[controller]")]
     public class MessagesController : Controller
     {
         //serve is service
@@ -25,26 +25,26 @@ namespace WebAppApi.Controllers
 
 
         [HttpGet]
-        public IActionResult Get(string id)
+        public IActionResult Get(string User, string id)
         {
-            if(serve.GetContact(id) == null)
+            if(serve.GetContact(User, id) == null)
             {
                 return new NotFoundResult();
             }
-            return new OkObjectResult(serve.GetAllMessages()); ;
+            return new OkObjectResult(serve.GetAllMessages(User, id));
         }
 
         [HttpPost]
         //  [ValidateAntiForgeryToken]
-        public IActionResult Create(string id, [Bind("Content")] Message message)
+        public IActionResult Create(string User, string id, [Bind("Content")] Message message)
         {
-            if (serve.GetContact(id) == null)
+            if (serve.GetContact(User, id) == null)
             {
                 return new NotFoundResult();
             }
             if (ModelState.IsValid)
             {
-                serve.CreateMessage(message.Content);
+                serve.CreateMessage(User, id, message.Content);
                 return new OkObjectResult(message.Id);
             }
             return new NotFoundResult();
@@ -52,17 +52,17 @@ namespace WebAppApi.Controllers
 
 
         [HttpGet("{id2}")]
-        public IActionResult Details(string id, int id2)
+        public IActionResult Details(string User, string id, int id2)
         {
-            if (serve.GetContact(id) == null)
+            if (serve.GetContact(User, id) == null)
             {
                 return new NotFoundResult();
             }
-            if (id2 == null || serve.GetAllMessages().Count == 0)
+            if (serve.GetAllMessages(User, id).Count == 0)
             {
                 return new NotFoundResult();
             }
-            Message message = serve.GetMessage(id2);
+            Message message = serve.GetMessage(User, id, id2);
             if (message == null)
             {
                 return new NotFoundResult();
@@ -71,14 +71,14 @@ namespace WebAppApi.Controllers
         }
 
         [HttpPut("{id2}")]
-        public IActionResult Update(string id, int id2, string Content)
+        public IActionResult Update(string User, string id, int id2, string Content)
         {
-            if (serve.GetContact(id) == null)
+            if (serve.GetContact(User, id) == null)
             {
                 return new NotFoundResult();
             }
-            serve.EditMessage(id2, Content);
-            var message = serve.GetMessage(id2);
+            serve.EditMessage(User, id, id2, Content);
+            var message = serve.GetMessage(User, id, id2);
             if (message == null)
             {
                 return new NotFoundResult();
@@ -87,29 +87,24 @@ namespace WebAppApi.Controllers
         }
 
         [HttpDelete("{id2}")]
-        public IActionResult Delete(string id, int id2)
+        public IActionResult Delete(string User, string id, int id2)
         {
-            if (serve.GetContact(id) == null)
+            if (serve.GetContact(User, id) == null)
             {
                 return new NotFoundResult();
             }
-            if (serve.GetAllMessages().Count == 0)
+
+            if (serve.GetAllMessages(User, id).Count == 0)
             {
                 return new NotFoundResult();
             }
-            Message message = serve.GetMessage(id2);
+            Message message = serve.GetMessage(User, id, id2);
             if (message == null)
             {
                 return new NotFoundResult();
             }
-            serve.DeleteMessage(id2);
+            serve.DeleteMessage(User, id, id2);
             return new OkObjectResult(id2);
-        }
-
-
-        private bool MessageExists(int id)
-        {
-          return serve.GetAllMessages().Any(e => e.Id == id);
         }
     }
 }
