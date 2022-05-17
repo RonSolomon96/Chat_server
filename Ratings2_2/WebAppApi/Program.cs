@@ -8,6 +8,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<WebAppApiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("WebAppApiContext") ?? throw new InvalidOperationException("Connection string 'WebAppApiContext' not found.")));
 
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy("Allow All",
+        builder =>
+        {
+            builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+        }
+        );
+});
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -25,6 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("Allow All");
 
 app.UseAuthorization();
 
