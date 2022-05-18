@@ -8,49 +8,49 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Ratings2_2
 build_property.RootNamespace = Ratings2_2
-build_property.ProjectDir = C:\Users\ord42\OneDrive - Bar-Ilan University\Advanced2Project\ex2\mitkadem_server2-2\Ratings2_2\Ratings2_2\
+build_property.ProjectDir = C:\Users\User\Desktop\Ron\שנה ב\sem2\מתקדם2\ex2R\Ratings2_2\Ratings2_2\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ord42\OneDrive - Bar-Ilan University\Advanced2Project\ex2\mitkadem_server2-2\Ratings2_2\Ratings2_2
+build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\Ron\שנה ב\sem2\מתקדם2\ex2R\Ratings2_2\Ratings2_2
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/RatingObjs/Create.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/RatingObjs/Delete.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/RatingObjs/Details.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/RatingObjs/Edit.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/RatingObjs/Index.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/RatingObjs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nT2Jqc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/Shared/Error.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/_ViewImports.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/_ViewStart.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ord42/OneDrive - Bar-Ilan University/Advanced2Project/ex2/mitkadem_server2-2/Ratings2_2/Ratings2_2/Views/Shared/_Layout.cshtml]
+[C:/Users/User/Desktop/Ron/שנה ב/sem2/מתקדם2/ex2R/Ratings2_2/Ratings2_2/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-opr1bnr3dg
