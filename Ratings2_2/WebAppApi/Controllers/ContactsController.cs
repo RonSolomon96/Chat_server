@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using WebAppApi.Data;
 using WebAppApi.Models;
 using WebAppApi.Services;
@@ -29,7 +28,7 @@ namespace WebAppApi.Controllers
         [HttpGet]
         public IActionResult GetContacts(string User)
         {
-            List<Contact> contacts = serve.GetAllContacts(User);
+            List<ContactClone> contacts = serve.GetAllContacts(User);
             if (contacts == null)
             {
                 return NotFound();
@@ -69,7 +68,7 @@ namespace WebAppApi.Controllers
             {
                 return new NotFoundResult();
             }
-            Contact contact = serve.GetContact(User, id);
+            ContactClone contact = serve.GetContact(User, id);
             if (contact == null) {
                 return new NotFoundResult();
             }
@@ -94,7 +93,7 @@ namespace WebAppApi.Controllers
             {
                 return new NotFoundResult();
             }
-            Contact contact = serve.GetContact(User, id);
+            ContactClone contact = serve.GetContact(User, id);
             if (contact == null)
             {
                 return new NotFoundResult();

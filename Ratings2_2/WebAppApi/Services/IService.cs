@@ -16,9 +16,9 @@ namespace WebAppApi.Services
 
 
 
-        public Contact GetContact(string User, string Id);
+        public ContactClone GetContact(string User, string Id);
 
-        public List<Contact> GetAllContacts(string User);
+        public List<ContactClone> GetAllContacts(string User);
         
         public void CreateContact(string User, string Id, string Name, string Server);
 
