@@ -28,7 +28,7 @@ namespace WebAppApi.Controllers
         [HttpGet]
         public IActionResult GetContacts(string User)
         {
-            List<Contact> contacts = serve.GetAllContacts(User);
+            List<ContactClone> contacts = serve.GetAllContacts(User);
             if (contacts == null)
             {
                 return NotFound();
@@ -68,7 +68,7 @@ namespace WebAppApi.Controllers
             {
                 return new NotFoundResult();
             }
-            Contact contact = serve.GetContact(User, id);
+            ContactClone contact = serve.GetContact(User, id);
             if (contact == null) {
                 return new NotFoundResult();
             }
@@ -93,7 +93,7 @@ namespace WebAppApi.Controllers
             {
                 return new NotFoundResult();
             }
-            Contact contact = serve.GetContact(User, id);
+            ContactClone contact = serve.GetContact(User, id);
             if (contact == null)
             {
                 return new NotFoundResult();

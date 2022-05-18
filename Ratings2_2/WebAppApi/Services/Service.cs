@@ -7,7 +7,6 @@ namespace WebAppApi.Services
         Dictionary<string, List<Contact>> DB = new Dictionary<string, List<Contact>>();
         List<User> Users = new List<User>();
 
-
         public User GetUser(string Username)
         {
             return Users.Find(u => u.UserName == Username);
@@ -38,24 +37,37 @@ namespace WebAppApi.Services
 
 
 
-        public Contact GetContact(string User, string Id)
+        public ContactClone GetContact(string User, string Id)
         {
             if (GetUser(User) == null) { 
                 return null;    
             }
-            return DB[User].Find(c => c.Id == Id); 
-                //Contacts.Find(c => c.Id == Id);
+            
+            return DB[User].Find(c => c.Id == Id);
         }
 
-        public List<Contact> GetAllContacts(string User)
+        public List<ContactClone> GetAllContacts(string User)
             
         {
             if (GetUser(User) == null)
             {
                 return null;
             }
-            return DB[User];
+            List<ContactClone> contacts = new List<ContactClone>();
+            foreach (Contact contact in DB[User]) { 
+
+                contacts.Add(new ContactClone()
+                {
+                    Id = contact.Id,
+                    Name = contact.Name,
+                    Server = contact.Server,
+                    Last = contact.Last,
+                    Lastdate = contact.Lastdate
+                });
+            }
+            return contacts;
         }
+
         public void CreateContact(string User, string Id, string Name, string Server)
         {
             DB[User].Add(new Contact()
@@ -71,7 +83,7 @@ namespace WebAppApi.Services
 
         public void EditContact(string User, string Id, string Name, string Server)
         {
-            Contact obj = GetContact(User, Id);
+            ContactClone obj = GetContact(User, Id);
             if (obj != null)
             {
                 obj.Name = Name;
@@ -82,10 +94,10 @@ namespace WebAppApi.Services
 
         public void DeleteContact(string User, string Id)
         {
-            Contact obj = GetContact(User, Id);
+            ContactClone obj = GetContact(User, Id);
             if (obj != null)
             {
-                DB[User].Remove(obj);
+                DB[User].Remove((Contact)obj);
             }
         }
 
