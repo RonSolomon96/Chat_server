@@ -19,5 +19,9 @@ namespace WebAppApi.Data
         public DbSet<WebAppApi.Models.Message> Message { get; set; }
 
         public DbSet<WebAppApi.Models.User> User { get; set; }
+
+        public DbSet<WebAppApi.Models.invitation> invitation { get; set; }
+
+        public DbSet<WebAppApi.Models.transfer> transfer { get; set; }
     }
 }
