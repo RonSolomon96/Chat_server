@@ -9660,19 +9660,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ord42\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\‏mitkademServer2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Ron\\שנה ב\\sem2\\מתקדם2\\ex2R\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
       "projectName": "Ratings2_2",
-      "projectPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\‏mitkademServer2-2\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
-      "packagesPath": "C:\\Users\\ord42\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ord42\\OneDrive - Bar-Ilan University\\Advanced2Project\\ex2\\‏mitkademServer2-2\\Ratings2_2\\Ratings2_2\\obj\\",
+      "projectPath": "C:\\Users\\User\\Desktop\\Ron\\שנה ב\\sem2\\מתקדם2\\ex2R\\Ratings2_2\\Ratings2_2\\Ratings2_2.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Ron\\שנה ב\\sem2\\מתקדם2\\ex2R\\Ratings2_2\\Ratings2_2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ord42\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9735,7 +9735,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
