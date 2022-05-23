@@ -30,7 +30,7 @@ namespace WebAppApi.Controllers
             Message message = new Message();
             message.Content = transfer.Content;
             MessagesController controller = new MessagesController(serve);
-            return controller.Create(transfer.To, transfer.From, message);
+            return controller.Create(transfer.To, transfer.From, message, false);
         }
     }
 

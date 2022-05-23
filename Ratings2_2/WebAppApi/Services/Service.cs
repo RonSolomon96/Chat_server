@@ -123,7 +123,7 @@ namespace WebAppApi.Services
             return DB[User].Find(c => c.Id == Contact).Messages;
         }
 
-        public void CreateMessage(string User, string Contact, string Content)
+        public void CreateMessage(string User, string Contact,bool ort, string Content)
         {
             List<Message> Messages = DB[User].Find(c => c.Id == Contact).Messages;
             int id = 0;
@@ -137,8 +137,8 @@ namespace WebAppApi.Services
                 Id = id,
                 Content = Content,
                 Created = DateTime.Now.ToString(),
-                Sent = true
-            });
+                Sent = ort
+            }) ;
         }
 
         public void EditMessage(string User, string Contact, int Id, string Content)
