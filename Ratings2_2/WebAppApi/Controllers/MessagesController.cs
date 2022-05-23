@@ -35,17 +35,21 @@ namespace WebAppApi.Controllers
 
         [HttpPost]
         //  [ValidateAntiForgeryToken]
-        public IActionResult Create(string User, string id, [Bind("Content")] Message message)
+        public IActionResult Create(string User, string id, [Bind("Content")] Message message, bool ort = true)
         {
-            if (serve.GetContact(User, id) == null)
+
+            ContactClone cont = serve.GetContact(User, id);
+            if (cont == null)
             {
                 return new NotFoundResult();
             }
             if (ModelState.IsValid)
             {
-                serve.CreateMessage(User, id, message.Content);
+                serve.CreateMessage(User, id,ort, message.Content);
+                cont.Last = message.Content;
                 return new OkObjectResult(message.Id);
-            }
+                
+            } 
             return new NotFoundResult();
         }
 

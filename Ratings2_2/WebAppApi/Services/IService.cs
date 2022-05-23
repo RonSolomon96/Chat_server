@@ -31,7 +31,7 @@ namespace WebAppApi.Services
 
         public List<Message> GetAllMessages(string User, string Contact);
 
-        public void CreateMessage(string User, string Contact, string Content);
+        public void CreateMessage(string User, string Contact,bool ort, string Content);
 
         public void EditMessage(string User, string Contact, int Id, string Content);
 
