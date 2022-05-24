@@ -29,8 +29,7 @@ builder.Services.AddControllers();
 builder.Services.AddSignalR();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+builder.Services.AddSwaggerGen();  
 builder.Services.AddSingleton<IService, Service>();
 
 var app = builder.Build();
@@ -41,12 +40,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseEndpoints(endpoints => { endpoints.MapHub<MyHub>("http://localhost:5019/contactHub" ); }); 
 
 app.UseCors("Allow All");
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+//app.UseEndpoints(endpoints =>
+//{
+  //  endpoints.MapHub<MyHub>("/MyHub");
+//});
 
 app.Run();

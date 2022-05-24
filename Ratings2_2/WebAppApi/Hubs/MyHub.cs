@@ -6,7 +6,7 @@ namespace WebAppApi.Hubs
     {
         public async Task addCont(string username)
         {
-            await Clients.All.SendAsync("contactAdded",username); 
+            await Clients.All.SendAsync("somthingAdded",username); 
         }
     }
 }
