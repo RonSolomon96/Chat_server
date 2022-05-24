@@ -13,12 +13,12 @@ namespace WebAppApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class transfersController : Controller
+    public class transferController : Controller
     {
         //serve is service
         private IService serve;
 
-        public transfersController(IService serv)
+        public transferController(IService serv)
         {
             serve = serv;
         }
