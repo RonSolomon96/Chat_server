@@ -14,8 +14,8 @@ builder.Services.AddCors(option =>
     option.AddPolicy("Allow All",
         builder =>
         {
-            builder
-            .AllowAnyOrigin()
+            builder.SetIsOriginAllowed(origin => true)
+            .AllowCredentials()
             .AllowAnyMethod()
             .AllowAnyHeader();
         }
@@ -40,6 +40,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseRouting();   
 
 app.UseCors("Allow All");
 
@@ -47,9 +48,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-//app.UseEndpoints(endpoints =>
-//{
-  //  endpoints.MapHub<MyHub>("/MyHub");
-//});
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<MyHub>("/MyHub");
+});
 
 app.Run();

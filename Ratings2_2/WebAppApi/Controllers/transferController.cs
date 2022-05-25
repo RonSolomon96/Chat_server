@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebAppApi.Data;
+using Microsoft.AspNetCore.SignalR;
+using WebAppApi.Hubs;
 using WebAppApi.Models;
 using WebAppApi.Services;
 
@@ -17,19 +19,22 @@ namespace WebAppApi.Controllers
     {
         //serve is service
         private IService serve;
+        private readonly IHubContext<MyHub> hubContext;
 
-        public transferController(IService serv)
+        public transferController(IService serv, IHubContext<MyHub> _hubContext)
         {
             serve = serv;
+            hubContext = _hubContext;
         }
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("From, To, Content")] transfer transfer)
+        public async Task<IActionResult> Create([Bind("From, To, Content")] transfer transfer)
         {
             Message message = new Message();
             message.Content = transfer.Content;
             MessagesController controller = new MessagesController(serve);
+            await hubContext.Clients.All.SendAsync("somthingAdded");
             return controller.Create(transfer.To, transfer.From, message, false);
         }
     }
