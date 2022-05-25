@@ -19,12 +19,12 @@ namespace WebAppApi.Controllers
     {
         //serve is service
         private IService serve;
-        private IHubContext<MyHub> hubContext;
+        private readonly IHubContext<MyHub> hubContext;
 
-        public invitationsController(IService serv, IHubContext<MyHub> hubContext)
+        public invitationsController(IService serv, IHubContext<MyHub> _hubContext)
         {
             serve = serv;
-            MyHub myHub = new MyHub();
+            hubContext = _hubContext ;
 
         }
 
