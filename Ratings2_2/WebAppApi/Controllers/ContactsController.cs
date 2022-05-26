@@ -49,7 +49,8 @@ namespace WebAppApi.Controllers
                     if (ModelState.IsValid)
                     {
                         serve.CreateContact(User, contact.Id, contact.Name, contact.Server);
-                        return new OkObjectResult(contact.Id);
+                        return  StatusCode(201);
+                        
                     }
                     return new NotFoundResult();
                 }
@@ -83,7 +84,7 @@ namespace WebAppApi.Controllers
             if (contact == null) {
                 return new NotFoundResult();
             }
-            return new OkObjectResult(contact.Id);
+            return StatusCode(204);
         }
        
         [HttpDelete("{id}")]
@@ -99,7 +100,7 @@ namespace WebAppApi.Controllers
                 return new NotFoundResult();
             }
             serve.DeleteContact(User, id);
-            return  new OkObjectResult(id);
+            return StatusCode(204);
         }
         
 

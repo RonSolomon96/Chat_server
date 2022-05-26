@@ -10,7 +10,6 @@ namespace WebAppApi.Services
         public User GetUser(string Username)
         {
             return Users.Find(u => u.UserName == Username);
-            //Contacts.Find(c => c.Id == Id);
         }
 
         public List<User> GetAllUsers()

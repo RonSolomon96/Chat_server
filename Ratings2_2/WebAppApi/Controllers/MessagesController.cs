@@ -47,8 +47,8 @@ namespace WebAppApi.Controllers
             {
                 serve.CreateMessage(User, id,ort, message.Content);
                 cont.Last = message.Content;
-                return new OkObjectResult(message.Id);
-                
+                return StatusCode(201);
+
             } 
             return new NotFoundResult();
         }
@@ -107,7 +107,7 @@ namespace WebAppApi.Controllers
                 return new NotFoundResult();
             }
             serve.DeleteMessage(User, id, id2);
-            return new OkObjectResult(id2);
+            return StatusCode(204);
         }
     }
 }
