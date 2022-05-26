@@ -35,10 +35,8 @@ namespace WebAppApi.Controllers
             message.Content = transfer.Content;
             MessagesController controller = new MessagesController(serve);
             await hubContext.Clients.All.SendAsync("somthingAdded");
-<<<<<<< HEAD
-            //return StatusCode(201);
-=======
->>>>>>> c90131bf8a906d32e75621ec2b0d7b7e9fae2d69
+            
+
             return controller.Create(transfer.To, transfer.From, message, false);
         }
     }
