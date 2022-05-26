@@ -34,7 +34,7 @@ namespace WebAppApi.Controllers
             Message message = new Message();
             message.Content = transfer.Content;
             MessagesController controller = new MessagesController(serve);
-            await hubContext.Clients.All.SendAsync("somthingAdded");
+            await hubContext.Clients.All.SendAsync("messageAdded");
             return controller.Create(transfer.To, transfer.From, message, false);
         }
     }
