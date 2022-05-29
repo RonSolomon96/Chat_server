@@ -12,7 +12,7 @@ using WebAppApi.Services;
 namespace WebAppApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/{User}")]
+    [Route("api/[controller]")]
     public class ContactsController : Controller
     {
         //serve is service
@@ -70,10 +70,16 @@ namespace WebAppApi.Controllers
                 return new NotFoundResult();
             }
             ContactClone contact = serve.GetContact(User, id);
+            ContactClone c = new ContactClone() ;
+            c.Id = contact.Id;
+            c.Name = contact.Name;
+            c.Server = contact.Server;
+            c.Last = contact.Last;
+            c.Lastdate = contact.Lastdate;
             if (contact == null) {
                 return new NotFoundResult();
             }
-            return new OkObjectResult(contact);
+            return new OkObjectResult(c);
         }
 
         [HttpPut("{id}")]

@@ -11,7 +11,7 @@ using WebAppApi.Services;
 namespace WebAppApi.Controllers
 {
     [ApiController]
-    [Route("api/Contacts/{User}/{id}/[controller]")]
+    [Route("api/Contacts/{id}/[controller]")]
     public class MessagesController : Controller
     {
         //serve is service
